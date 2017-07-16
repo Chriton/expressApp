@@ -1,0 +1,61 @@
+<p>Welcome to {{ title }}</p>
+
+<h1>{{ title }}</h1>
+
+{{#if success}}
+    <section class="success">
+        <h2>Successful Validation!</h2>
+    </section>
+{{ else }}
+
+    {{# if errors }}
+        <section class="errors">
+            <ul>
+                {{# each errors}}
+                    <li>{{ this.msg }}</li>
+                {{/each}}
+            </ul>
+        </section>
+    {{/if}}
+
+    <form action="/test/submit" method="post">
+        <input type="text" name="id">
+        <button type="submit">Submit</button>
+    </form>
+
+    <form action="/submit" method="post">
+        <div class="input">
+            <label for="email">E-Mail</label>
+            <input type="text" id="email" name="email">
+        </div>
+        <div class="input">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div class="input">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword">
+        </div>
+        <button type="submit">Sign up</button>
+    </form>
+
+    <hr>
+    <div class="form-group" id="container">
+        <label class="control-label" for="awb">AWB</label>
+        <input class="form-control" type="text" id="awb" name="awb">
+    </div>
+    <button class="btn btn-primary" id="getAwb">Get Awb</button>
+
+    <div>
+        <img  src="/images/loading.gif" id="loading" alt = "loading..." id="loading"/>
+        <p id="info"></p>
+    </div>
+
+{{/if}}
+
+
+
+
+
+
+
